@@ -1,0 +1,1 @@
+Backend for a mobile app using cordova and rails.

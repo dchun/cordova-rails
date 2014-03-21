@@ -1,0 +1,25 @@
+<h3>My jobs</h3>
+
+<table>
+  <tr>
+    <th>Number</th>
+    <th>Customer</th>
+    <th>Equipment</th>
+    <th></th>
+  </tr>
+
+<% @jobs.each do |job| %>
+  <tr>
+    <td><%= job.number %></td>
+    <td><%= job.customer %></td>
+    <td><%= job.equipment %></td>
+    <td><%= link_to 'Show', job %></td>
+    <td><%= link_to 'Edit', edit_job_path(job) %></td>
+    <td><%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Job', new_job_path %>

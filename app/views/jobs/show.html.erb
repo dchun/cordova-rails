@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Number:</b>
+  <%= @job.number %>
+</p>
+<p>
+  <b>Customer:</b>
+  <%= @job.customer %>
+</p>
+<p>
+  <b>Equiupment:</b>
+  <%= @job.equipment %>
+</p>
+<% @job.images.each do |image| %>
+  <%= image_tag image.pic if image.pic? %>
+<% end %>
+<%= link_to 'Edit', edit_job_path(@job) %> |
+<%= link_to 'Back', jobs_path %>
