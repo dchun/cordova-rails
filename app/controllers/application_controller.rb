@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
 
   def add_origin_header
     # For testing on your local machine on a normal browser, change this to your machine's IP
-    headers['Access-Control-Allow-Origin'] = 'http://198.199.113.143/cordova-rails/';
+    headers['Access-Control-Allow-Origin'] = 'http://198.199.113.143';
     headers['Access-Control-Allow-Credentials'] = 'true';
     headers['Access-Control-Allow-Methods'] = 'GET, POST';
     headers['Access-Control-Allow-Headers'] = 'X-Requested-With';
