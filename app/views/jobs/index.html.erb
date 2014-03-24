@@ -5,6 +5,7 @@
     <th>Number</th>
     <th>Customer</th>
     <th>Equipment</th>
+    <th>Images</th>
     <th></th>
   </tr>
 
@@ -13,6 +14,11 @@
     <td><%= job.number %></td>
     <td><%= job.customer %></td>
     <td><%= job.equipment %></td>
+    <td>
+      <% job.images.each do |image| %>
+        <%= image_tag image.pic, {height: 45} %>
+      <% end %>
+    </td>
     <td><%= link_to 'Show', job %></td>
     <td><%= link_to 'Edit', edit_job_path(job) %></td>
     <td><%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } %></td>

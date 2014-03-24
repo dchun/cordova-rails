@@ -26,7 +26,7 @@
   <div class="field">
     <%= f.fields_for :images do |builder| %>
       <%= builder.label :pic %><br />
-      <%= builder.file_field :pic %>
+      <%= builder.file_field :pic, :multiple => true, name: "images[pic][]" %>
     <% end %>
   </div>
   <div class="actions">

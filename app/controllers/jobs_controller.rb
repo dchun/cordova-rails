@@ -11,7 +11,7 @@ class JobsController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       if params[:callback]
-        format.js { render :json => {:jobs => @jobs.to_a}, :callback => params[:callback] }
+        format.js { render :json => {:jobs => @jobs.as_json(include: :images)}, :callback => params[:callback] }
       else
         format.json { render json: @jobs }
       end
@@ -26,7 +26,7 @@ class JobsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @job }
+      format.json { render json: @job.to_json(include: :images) }
     end
   end
 
@@ -55,6 +55,9 @@ class JobsController < ApplicationController
 
     respond_to do |format|
       if @job.save
+        params[:images]['pic'].each do |p|
+          @images = @job.images.create!(:pic => p, :job_id => @job.id)
+        end
         format.html { redirect_to @job, notice: 'Job was successfully created.' }
         format.json { render json: @job, status: :created, location: @job }
       else
